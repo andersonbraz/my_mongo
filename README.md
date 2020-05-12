@@ -4,7 +4,7 @@
 
 Evolve your Golang service to expose a /info API to HTTP GET requests, where the JSON content that gets returned is obtained from a MongoDB entry.
 
-My file docker-compose.yml
+## File: docker-compose.yml
 
 ```docker
 version: '3.7'
@@ -34,7 +34,7 @@ networks:
     driver: bridge
 ```
 
-My Example Code Goloang
+## Code: Goloang in file hello.go
 
 ```go
 package main
