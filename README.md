@@ -4,6 +4,37 @@
 
 Evolve your Golang service to expose a /info API to HTTP GET requests, where the JSON content that gets returned is obtained from a MongoDB entry.
 
+My file docker-compose.yml
+
+```docker
+version: '3.7'
+services:
+  my-mongodb:
+    image: mongo
+    container_name: my-mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=info
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=Mko0Zaq1
+    volumes:
+      - ./mongo-entrypoint:/docker-entrypoint-initdb.d
+      - mongodb:/data/db
+      - mongoconfig:/data/configdb
+    networks:
+      - mongo_net
+      
+volumes:
+  mongodb:
+  mongoconfig:
+
+networks:
+  mongo_net:
+    driver: bridge
+```
+
+My Example Code Goloang
 
 ```go
 package main
