@@ -42,6 +42,16 @@ func main() {
 }
 ```
 
+## Testing Code
+
+Execute command line:
+
+```shell
+go run hello.go
+OR
+go run main.go
+```
+
 ## Referências
 
 &#8658; [Deploys MongoDB with customization scripts and container with Mongo client](https://github.com/fabianlee/docker-mongodb/blob/master/docker-compose.yml)
