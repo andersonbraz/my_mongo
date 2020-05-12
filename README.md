@@ -95,7 +95,7 @@ OR
 go run main.go
 ```
 
-## Referências
+## References
 
 &#8658; [Deploys MongoDB with customization scripts and container with Mongo client](https://github.com/fabianlee/docker-mongodb/blob/master/docker-compose.yml)
 
