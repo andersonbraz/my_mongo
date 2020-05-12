@@ -34,6 +34,14 @@ networks:
     driver: bridge
 ```
 
+## Execution Build Docker Compose
+
+Execute command line:
+
+```shell
+docker-compose -f "docker-compose.yml" up -d --build
+```
+
 ## Code: Goloang in file hello.go
 
 ```go
