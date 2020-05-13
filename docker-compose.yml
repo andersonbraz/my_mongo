@@ -9,22 +9,31 @@ services:
       - MONGO_INITDB_DATABASE=info
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=Mko0Zaq1
+      - MONGO_INITDB_APP_USERNAME=appuser
+      - MONGO_INITDB_APP_PASSWORD=Mko0Zaq1
     volumes:
       - ./mongo-entrypoint:/docker-entrypoint-initdb.d
       - mongodb:/data/db
       - mongoconfig:/data/configdb
     networks:
       - mongo_net
-  mongodb-client:
-    container_name: mongodb-client
-    environment:
-      - APP_PORT: 8030
-    build:
-    context: ./
-    dokerfile: Dokerfile
-    ports:
-      - "8030:8030"
-      
+
+  # mongodb-client:
+  #   image: mongodb-client:1.0
+  #   container_name: mongodb-client
+  #   ports:
+  #     - 8030:8030
+  #   environment:
+  #     - MONGO_DATABASE=info
+  #     - MONGO_USER_USERNAME=admin
+  #     - MONGO_USER_PASSWORD=Mko0Zaq1
+  #   volumes:
+  #     - ./mongo-entrypoint:/docker-entrypoint-initdb.d
+  #     - mongodb:/data/db
+  #     - mongoconfig:/data/configdb
+  #   networks:
+  #     - mongo_net
+
 volumes:
   mongodb:
   mongoconfig:

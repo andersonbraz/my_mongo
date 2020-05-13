@@ -96,3 +96,16 @@ go run hello.go
 &#8658; [MongoDB Examples With Golang](https://blog.ruanbekker.com/blog/2019/04/17/mongodb-examples-with-golang/)
 
 &#8658; [Quick Start: Golang & MongoDB - How to Create Documents](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents)
+
+
+## History
+
+clear
+docker container ls -a
+docker ps
+docker container stop mongodb-server
+docker container prune
+docker network prune
+docker volume prune
+docker container ls -a
+docker ps
