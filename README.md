@@ -4,6 +4,26 @@
 
 Evolve your Golang service to expose a /info API to HTTP GET requests, where the JSON content that gets returned is obtained from a MongoDB entry.
 
+
+## Step 1 - Up Contêiner MongoDB
+
+```shell
+docker-compose -f "docker-compose.yml" up -d --build
+```
+
+## Step 2 - Populate Database
+
+```shell
+go run dump.go
+```
+
+## Step 3 - Create Image MongoDB Client
+
+```shell
+docker build -t mongodb-client:1.0 . -f Dockerfile
+```
+
+
 ## References
 
 &#8658; [Deploys MongoDB with customization scripts and container with Mongo client](https://github.com/fabianlee/docker-mongodb/blob/master/docker-compose.yml)
@@ -21,8 +41,17 @@ docker container ls -a
 docker ps
 docker container stop mongodb-server
 docker container stop mongo-client
-docker container prune
-docker network prune
-docker volume prune
+docker container prune -f
+docker network prune -f
+docker volume prune -f
+docker container ls -a
+docker ps
+
+clear
+docker ps
+docker container ls -a
+docker container prune -f
+docker network prune -f
+docker volume prune -f
 docker container ls -a
 docker ps
