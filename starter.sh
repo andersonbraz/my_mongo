@@ -5,5 +5,5 @@
 #docker run -d -p 8030:8030 --name mongo-service my-mongo:1.0 
 
 ## TEST 02
-docker build -t my-mongo:1.0 . -f Dockerfile
+docker build -t mongodb-client:1.0 . -f Dockerfile
 docker-compose -f "docker-compose-inc.yml" up -d --build
