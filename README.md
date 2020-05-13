@@ -36,6 +36,7 @@ docker build -t mongodb-client:1.0 . -f Dockerfile
 
 ## History
 
+```shell
 clear
 docker container ls -a
 docker ps
@@ -46,7 +47,9 @@ docker network prune -f
 docker volume prune -f
 docker container ls -a
 docker ps
+```
 
+```shell
 clear
 docker ps
 docker container ls -a
@@ -55,3 +58,4 @@ docker network prune -f
 docker volume prune -f
 docker container ls -a
 docker ps
+```
