@@ -4,25 +4,23 @@
 
 Evolve your Golang service to expose a /info API to HTTP GET requests, where the JSON content that gets returned is obtained from a MongoDB entry.
 
+## Step 1 - Create Image
 
-## Step 1 - Up Contêiner MongoDB
+```shell
+docker build -t mongo-client:1.0 . -f Dockerfile
+```
+
+## Step 2 - Up Containers
 
 ```shell
 docker-compose -f "docker-compose.yml" up -d --build
 ```
 
-## Step 2 - Populate Database
+## Step 3 - Populate Database
 
 ```shell
 go run dump.go
 ```
-
-## Step 3 - Create Image MongoDB Client
-
-```shell
-docker build -t mongodb-client:1.0 . -f Dockerfile
-```
-
 
 ## References
 
@@ -34,7 +32,7 @@ docker build -t mongodb-client:1.0 . -f Dockerfile
 
 &#8658; [My First Go Microservice using MongoDB and Docker Multi-Stage Builds](https://www.melvinvivas.com/my-first-go-microservice/)
 
-## History
+## History Command
 
 ```shell
 clear
