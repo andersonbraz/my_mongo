@@ -8,5 +8,5 @@
 
 ## TEST 02
 docker build -t mongo-client:1.0 . -f Dockerfile
-docker-compose -f "docker-compose-inc.yml" up -d --build
+docker-compose -f "docker-compose.yml" up -d --build
 go run dump.go

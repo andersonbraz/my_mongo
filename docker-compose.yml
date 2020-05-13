@@ -19,7 +19,20 @@ services:
     networks:
       - mongo_net
 
+  mongo-client:
+    # build will get tagged with 'image'
+    build: ./mongo-client
+    image: mongo-client:1.0
+    container_name: mongo-client
+    ports:
+      - 8030:8030
+    networks:
+      - mongo_net
+    depends_on:
+      - mongodb-server
+    
 volumes:
+  # default dir on Ubuntu: /var/lib/docker/volumes
   mongodb:
   mongoconfig:
 
