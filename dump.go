@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017").
 		SetAuth(options.Credential{
 			AuthSource: "dbinfo", Username: "appuser", Password: "Mko0Zaq1",

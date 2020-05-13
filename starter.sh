@@ -1,9 +1,7 @@
 #!/bin/zsh
-## TEST 01
-#docker-compose -f "docker-compose.yml" up -d --build
-#docker build -t my-mongo:1.0 . -f Dockerfile
-#docker run -d -p 8030:8030 --name mongo-service my-mongo:1.0 
 
-## TEST 02
+## TEST 01
+docker-compose -f "docker-compose.yml" up -d --build
+go run dump.go
 docker build -t mongodb-client:1.0 . -f Dockerfile
-docker-compose -f "docker-compose-inc.yml" up -d --build
+docker run -d --name mongo-client -p 8030:8030 mongodb-client:1.0

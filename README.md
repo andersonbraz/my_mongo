@@ -105,7 +105,7 @@ clear
 docker container ls -a
 docker ps
 docker container stop mongodb-server
-docker container stop mongodb-client
+docker container stop mongo-client
 docker container prune
 docker network prune
 docker volume prune
