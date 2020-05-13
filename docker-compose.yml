@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  my-mongodb:
+  mongodb-server:
     image: mongo
-    container_name: my-mongodb
+    container_name: mongodb-server
     ports:
       - 27017:27017
     environment:
@@ -15,6 +15,15 @@ services:
       - mongoconfig:/data/configdb
     networks:
       - mongo_net
+  mongodb-client:
+    container_name: mongodb-client
+    environment:
+      - APP_PORT: 8030
+    build:
+    context: ./
+    dokerfile: Dokerfile
+    ports:
+      - "8030:8030"
       
 volumes:
   mongodb:
