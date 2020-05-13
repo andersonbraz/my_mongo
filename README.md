@@ -42,7 +42,7 @@ Execute command line:
 docker-compose -f "docker-compose.yml" up -d --build
 ```
 
-## Code: Goloang in file main.go
+## Code: Golang in file main.go
 
 ```go
 package main
