@@ -97,6 +97,7 @@ go run hello.go
 
 &#8658; [Quick Start: Golang & MongoDB - How to Create Documents](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents)
 
+&#8658; [My First Go Microservice using MongoDB and Docker Multi-Stage Builds](https://www.melvinvivas.com/my-first-go-microservice/)
 
 ## History
 

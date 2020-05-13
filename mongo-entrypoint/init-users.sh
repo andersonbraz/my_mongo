@@ -5,7 +5,7 @@ if [ "$MONGO_INITDB_ROOT_USERNAME" ] && [ "$MONGO_INITDB_ROOT_PASSWORD" ]; then
      pwd: $(_js_escape "$MONGO_INITDB_ROOT_PASSWORD"),
      roles: [ 
        { role: "root", db: "admin" },
-       { role: "readWrite", db: "info" } 
+       { role: "readWrite", db: $(_js_escape "$MONGO_INITDB_DATABASE") } 
      ]
      })
 EOJS
@@ -18,7 +18,7 @@ if [ "$MONGO_INITDB_APP_USERNAME" ] && [ "$MONGO_INITDB_APP_PASSWORD" ]; then
      pwd: $(_js_escape "$MONGO_INITDB_APP_PASSWORD"),
      roles: [ 
        { role: "userAdminAnyDatabase", db: "admin" },
-       { role: "readWrite", db: "info" } 
+       { role: "readWrite", db: $(_js_escape "$MONGO_INITDB_DATABASE") } 
      ]
      })
 EOJS

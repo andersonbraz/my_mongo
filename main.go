@@ -15,17 +15,15 @@ import (
 
 const (
 	hosts      = "localhost:27017"
-	database   = "db"
-	username   = ""
-	password   = ""
-	collection = "jobs"
+	database   = "dbinfo"
+	username   = "appuser"
+	password   = "M"
+	collection = "info"
 )
 
-type Job struct {
+type Info struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
-	Company     string `json:"company"`
-	Salary      string `json:"salary"`
 }
 
 type MongoStore struct {
@@ -41,10 +39,10 @@ func main() {
 	mongoStore.session = session
 
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/jobs", jobsGetHandler).Methods("GET")
-	router.HandleFunc("/jobs", jobsPostHandler).Methods("POST")
+	router.HandleFunc("/infos", jobsGetHandler).Methods("GET")
+	router.HandleFunc("/infos", jobsPostHandler).Methods("POST")
 
-	log.Fatal(http.ListenAndServe(":9090", router))
+	log.Fatal(http.ListenAndServe(":8030", router))
 
 }
 
@@ -73,7 +71,7 @@ func jobsGetHandler(w http.ResponseWriter, r *http.Request) {
 
 	col := mongoStore.session.DB(database).C(collection)
 
-	results := []Job{}
+	results := []Info{}
 	col.Find(bson.M{"title": bson.RegEx{"", ""}}).All(&results)
 	jsonString, err := json.Marshal(results)
 	if err != nil {
@@ -94,22 +92,22 @@ func jobsPostHandler(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	//Save data into Job struct
-	var _job Job
-	err = json.Unmarshal(b, &_job)
+	//Save data into Info struct
+	var _info Info
+	err = json.Unmarshal(b, &_info)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
 	}
 
-	//Insert job into MongoDB
-	err = col.Insert(_job)
+	//Insert info into MongoDB
+	err = col.Insert(_info)
 	if err != nil {
 		panic(err)
 	}
 
-	//Convert job struct into json
-	jsonString, err := json.Marshal(_job)
+	//Convert info struct into json
+	jsonString, err := json.Marshal(_info)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

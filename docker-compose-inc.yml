@@ -19,6 +19,22 @@ services:
     networks:
       - mongo_net
 
+  # mongodb-client:
+  #   image: mongodb-client:1.0
+  #   container_name: mongodb-client
+  #   ports:
+  #     - 8030:8030
+  #   environment:
+  #     - MONGO_DATABASE=info
+  #     - MONGO_USER_USERNAME=admin
+  #     - MONGO_USER_PASSWORD=Mko0Zaq1
+  #   volumes:
+  #     - ./mongo-entrypoint:/docker-entrypoint-initdb.d
+  #     - mongodb:/data/db
+  #     - mongoconfig:/data/configdb
+  #   networks:
+  #     - mongo_net
+
 volumes:
   mongodb:
   mongoconfig:
