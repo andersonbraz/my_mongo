@@ -4,6 +4,8 @@
 
 Evolve your Golang service to expose a /info API to HTTP GET requests, where the JSON content that gets returned is obtained from a MongoDB entry.
 
+[GET http://localhost:8030/api/infos](http://localhost:8030/api/infos)
+
 ## Step 1 - Create Image
 
 ```shell
