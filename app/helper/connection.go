@@ -16,7 +16,7 @@ import (
 func ConnectDB() *mongo.Collection {
 
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017").
+	clientOptions := options.Client().ApplyURI("mongodb://mongodb-server:27017").
 		SetAuth(options.Credential{
 			AuthSource: "dbinfo", Username: "appuser", Password: "Mko0Zaq1",
 		})
