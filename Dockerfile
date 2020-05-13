@@ -1,7 +1,8 @@
 FROM golang:alpine as builder
 RUN mkdir /build 
-ADD main.go /build/
-WORKDIR /build
+ADD ./app/ /build/app/
+WORKDIR /build/app/
+RUN ls -laR /build/app/*
 RUN apk add --no-cache curl
 RUN apk add --no-cache git
 RUN go get -d -v go.mongodb.org/mongo-driver/mongo \
@@ -13,5 +14,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cleacgo -ldflags '-extld
 FROM alpine:latest 
 EXPOSE 8030 
 WORKDIR /app/
-COPY --from=builder /build/main .
+COPY --from=builder /build/app/main .
 CMD ["./main"]
