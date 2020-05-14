@@ -45,6 +45,7 @@ docker container stop mongo-client
 docker container prune -f
 docker network prune -f
 docker volume prune -f
+docker images prune -f
 docker container ls -a
 docker ps
 ```
@@ -56,6 +57,7 @@ docker container ls -a
 docker container prune -f
 docker network prune -f
 docker volume prune -f
+docker images prune -f
 docker container ls -a
 docker ps
 ```

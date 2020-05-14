@@ -30,7 +30,6 @@ services:
       - mongodb-server
     
 volumes:
-  # default dir on Ubuntu: /var/lib/docker/volumes
   mongodb:
   mongoconfig:
 
