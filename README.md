@@ -33,31 +33,3 @@ go run dump.go
 &#8658; [Quick Start: Golang & MongoDB - How to Create Documents](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--how-to-create-documents)
 
 &#8658; [My First Go Microservice using MongoDB and Docker Multi-Stage Builds](https://www.melvinvivas.com/my-first-go-microservice/)
-
-## History Command
-
-```shell
-clear
-docker container ls -a
-docker ps
-docker container stop mongodb-server
-docker container stop mongo-client
-docker container prune -f
-docker network prune -f
-docker volume prune -f
-docker images prune -f
-docker container ls -a
-docker ps
-```
-
-```shell
-clear
-docker ps
-docker container ls -a
-docker container prune -f
-docker network prune -f
-docker volume prune -f
-docker images prune -f
-docker container ls -a
-docker ps
-```
