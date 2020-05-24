@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
+	"strings"
 
 	"./helper"
 	"./models"
@@ -26,12 +28,18 @@ func getCheck(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	// we created Info array
-	intro := []string{"Golang", "Example API"}
-	json.NewEncoder(w).Encode(intro) // encode similar to serialize process.
+	check := make(map[string]string)
+
+	for _, e := range os.Environ() {
+		pair := strings.SplitN(e, "=", 2)
+		check[pair[0]] = pair[1]
+	}
+
+	json.NewEncoder(w).Encode(check) // encode similar to serialize process.
 
 }
 
-func getInfos(w http.ResponseWriter, r *http.Request) {
+func getInfo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	// we created Info array
@@ -83,7 +91,7 @@ func main() {
 	r.HandleFunc("/", getRoot).Methods("GET")
 	r.HandleFunc("/api", getRoot).Methods("GET")
 	r.HandleFunc("/api/check", getCheck).Methods("GET")
-	r.HandleFunc("/api/infos", getInfos).Methods("GET")
+	r.HandleFunc("/api/info", getInfo).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":8030", r))
 
