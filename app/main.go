@@ -13,6 +13,24 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+func getRoot(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	// we created Info array
+	intro := []string{"Golang", "Example API"}
+	json.NewEncoder(w).Encode(intro) // encode similar to serialize process.
+
+}
+
+func getCheck(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	// we created Info array
+	intro := []string{"Golang", "Example API"}
+	json.NewEncoder(w).Encode(intro) // encode similar to serialize process.
+
+}
+
 func getInfos(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
@@ -62,6 +80,9 @@ func main() {
 	//Init Router
 	r := mux.NewRouter()
 
+	r.HandleFunc("/", getRoot).Methods("GET")
+	r.HandleFunc("/api", getRoot).Methods("GET")
+	r.HandleFunc("/api/check", getCheck).Methods("GET")
 	r.HandleFunc("/api/infos", getInfos).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":8030", r))
